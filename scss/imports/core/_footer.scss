@@ -1,14 +1,16 @@
 footer {
-	@include desktop {
-		
-	}
-	@include tablet {
-		
-	}
-	@include mobile {
-		
-	}
-	@include mobile-xxs {
-		
+	margin-top: 50px;
+	height: 100px;
+	background: $blue-cl;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	.container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: #5E5E5E;
 	}
 }
