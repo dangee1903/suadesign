@@ -32,15 +32,16 @@ $('#btn-hamburger').on('click',(e)=> {
     $('#btn-hamburger').toggleClass("animeOpenClose");
     $('.menu').toggleClass("active");
 })
-let baivietlq = $('.baivietlienquan').offset().top;
-window.addEventListener("scroll", function(event) {
-    let flag = false;
-    var top = this.scrollY;
-    if(baivietlq <= top && flag == false && window.screen.availWidth > 767){
-        $('.baivietlienquan').addClass('fix');
-        flag = true;
-    }else{
-        $('.baivietlienquan').removeClass('fix');
-        flag = false;
-    }
-}, false);
+
+// let baivietlq = $('.baivietlienquan').offset().top;
+// window.addEventListener("scroll", function(event) {
+//     let flag = false;
+//     var top = this.scrollY;
+//     if(baivietlq <= top && flag == false && $(window).width() > 767){
+//         $('.baivietlienquan').addClass('fix');
+//         flag = true;
+//     }else{
+//         $('.baivietlienquan').removeClass('fix');
+//         flag = false;
+//     }
+// }, false);
