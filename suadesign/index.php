@@ -56,19 +56,41 @@
             <h2>Blog</h2>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="col-md-12">
-                        <div class="img">
-                            <a href="#"><img src="<?php echo SUA_THEME_IMG_URL?>/wordpress.jpg" alt=""></a>
+                <?php
+                    $args_my_query = array(
+                        'post_type' => 'post',
+                        'category_name'   => 'blog',
+                        'posts_per_page'  => 4,
+                    );
+                    $my_query = new WP_Query( $args_my_query );
+                    $i        = 0;
+                    if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
+                        $i++;
+                        if($i == 1){?>
+                            <div class="col-md-12">
+                                <div class="img">
+                                    <a href="<?php the_permalink();?>"><?php echo get_the_post_thumbnail( $post_id, '', array( 'class' =>'') ); ?></a>
+                                </div>
+                                <div class="content">
+                                    <small><?php echo get_the_date('d - m -Y');?></small>
+                                    <h2><a href="<?php the_permalink();?>"><?php echo the_title();?></a></h2>
+                                    <p><a href="<?php the_permalink();?>"><?php echo the_excerpt();?></a></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="content">
-                            <small>3 - 19 -2021</small>
-                            <h2><a href="#">WORDPRESS 5.5 – BẢN CẬP NHẬT ĐÁNG ĐỂ MONG ĐỢI</a></h2>
-                            <p><a href="#">Tất cả người dùng mã nguồn WordPress trên toàn thế giới luôn gắn bó với mã nguồn này không chỉ vì có một cộng đồng đông đảo, nhiều lựa chọn…</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="col-md-12">
+                            <div class="col-md-4">
+                        <?php
+                        }else{
+                ?>
+                            <div class="col-md-12">
+                                <small><?php echo get_the_date('d - m -Y');?></small>
+                                <h2><a href="<?php the_permalink();?>"><?php echo the_title();?></a></h2>
+                            </div>
+                <?php
+                    }endwhile; endif;
+                ?>      
+                    
+                    <!-- <div class="col-md-12">
                         <small>3 - 19 -2021</small>
                         <h2><a href="#">WORDPRESS 5.5 – BẢN CẬP NHẬT ĐÁNG ĐỂ MONG ĐỢI</a></h2>
                     </div>
@@ -79,7 +101,7 @@
                     <div class="col-md-12">
                         <small>3 - 19 -2021</small>
                         <h2><a href="#">WORDPRESS 5.5 – BẢN CẬP NHẬT ĐÁNG ĐỂ MONG ĐỢI</a></h2>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

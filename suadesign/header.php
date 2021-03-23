@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Grunt</title>
     <link rel="icon" href="">
+    <link rel="shortcut icon" type="image/png" href="<?php echo SUA_THEME_IMG_URL?>/suaDesign.ico"/>
     <meta name="title" content="" />
     <meta name="description" content="" />
     <meta property="og:locale" content="vi" />
@@ -17,21 +18,29 @@
     <meta property="og:site_name" content="" />
     <meta property="og:image" content="" />
 
-    <?php wp_head()?>
+    <?php wp_head();?>
 </head>
 <body>
 <header>
     <div class="container">
         <div class="logo">
-            <a href="/"><img src="<?php echo SUA_THEME_IMG_URL?>/sua_design.svg" alt="">SUA</a>
+            <a href="<?php echo get_bloginfo('url') ?>"><img src="<?php echo SUA_THEME_IMG_URL?>/sua_design.svg" alt="">SUA</a>
             <h1 class="hidden">SUA DESIGN</h1>
         </div>
-        <ul class="menu">
+        <?php
+        wp_nav_menu( array( 
+            'theme_location' => '', 
+            'container_class' => false,
+            'container'=> false, 
+            // 'menu_class'=> false,
+        )); 
+        ?>
+        <!-- <ul class="menu">
             <li><a href="">Trang chủ</a></li>
             <li><a href="">Blog</a></li>
             <li><a href="">Dịch vụ</a></li>
             <li><a href="">Liên hệ</a></li>
-        </ul>
+        </ul> -->
         <div class="search">
             <form action="">
                 <input type="text" placeholder="Tìm kiếm ...">

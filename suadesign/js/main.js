@@ -33,15 +33,22 @@ $('#btn-hamburger').on('click',(e)=> {
     $('.menu').toggleClass("active");
 })
 
-// let baivietlq = $('.baivietlienquan').offset().top;
-// window.addEventListener("scroll", function(event) {
-//     let flag = false;
-//     var top = this.scrollY;
-//     if(baivietlq <= top && flag == false && $(window).width() > 767){
-//         $('.baivietlienquan').addClass('fix');
-//         flag = true;
-//     }else{
-//         $('.baivietlienquan').removeClass('fix');
-//         flag = false;
-//     }
-// }, false);
+let baivietlq = $('.baivietlienquan').offset().top;
+window.addEventListener("scroll", function(event) {
+    let flag = false;
+    var top = this.scrollY;
+    if(baivietlq <= top && flag == false && $(window).width() > 767){
+        let width = $('.baivietlienquan').width();
+        $('.baivietlienquan').addClass('fix');
+        $('.fix').width(width);
+        flag = true;
+    }else{
+        $('.baivietlienquan').removeClass('fix');
+        flag = false;
+        $('.baivietlienquan').width('inherit');
+    }
+}, false);
+$( document ).ready(function() {
+    console.log($('.baivietlienquan').width());
+    $('.fix').width($('.baivietlienquan').width());
+});
